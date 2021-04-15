@@ -2,7 +2,7 @@
 import rospy
 from std_msgs.msg import Int32
 
-class hello_world:
+class pub_int():
 
     def __init__(self):
         self.number = 0
@@ -19,12 +19,9 @@ class hello_world:
             self.rate.sleep()
             self.number = self.number + 1
 
-def rospy_init(args = None):
-    try:
-        rospy.init_node('pub_node',argv=args)
-        hello_world()
-    except rospy.ROSInitException as e:
-        print(e)
+def ros_main(args = None):
+    rospy.init_node('pub_node',argv=args)
+    pub_int()
 
 if __name__=="__main__":
-    rospy_init()
+    ros_main()

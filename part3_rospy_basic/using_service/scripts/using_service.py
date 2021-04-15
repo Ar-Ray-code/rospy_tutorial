@@ -4,7 +4,7 @@ from std_msgs.msg import Int32
 from original_msg_example.msg import example_msg
 from original_msg_example.srv import calc_msg_srv
 
-class msg_output:
+class using_srv:
 
     def __init__(self):
         self.a = 0
@@ -34,7 +34,7 @@ class msg_output:
 def rospy_init(args = None):
     try:
         rospy.init_node('msg_output',argv=args)
-        msg_output()
+        using_srv()
     except rospy.ROSInitException as e:
         print(e)
 
