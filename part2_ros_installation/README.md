@@ -1,9 +1,12 @@
-# Part3 rospy_basic
+# Part2 Installation
 
-## 3.1 pub-sub Int32
+Please check http://wiki.ros.org/noetic/Installation/Ubuntu .
 
 ```bash
-$ roslaunch part3_1_pub_sub_int32 pub_sub.launch
+$ cd
+$ git clone https://github.com/Ar-Ray-code/rospy_tutorial.git
+$ bash ~/rospy_tutorial/part2_ros_installtion/ros_install.bash
+$ mv ~/rospy_tutorial ~/ros1_ws/src/rospy_tutorial
 ```
 
 ## 3.2 rosparam example

@@ -10,3 +10,11 @@ sudo apt install python3-rosdep python3-rosinstall python3-rosinstall-generator 
 
 sudo rosdep init
 rosdep update
+
+mkdir -p ~/ros1_ws/src
+source /opt/ros/noetic/setup.bash
+cd ~/ros1_ws/src && catkin_init_workspace
+
+echo "source /opt/ros/noetic/setup.bash" >> ~/.bashrc
+echo "source ~/ros1_ws/devel/setup.bash" >> ~/.bashrc
+
