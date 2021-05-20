@@ -5,7 +5,6 @@ from std_msgs.msg import Empty
 class toggle_led():
 
     def __init__(self):
-        self.number = False
 
         self.pub = rospy.Publisher('toggle_led', Empty, queue_size=1)
         hz = float(rospy.get_param("~pub_rate", 2))
@@ -15,8 +14,7 @@ class toggle_led():
         rospy.spin()
     
     def pub_number(self, dummy):
-        self.pub.publish(self.number)
-        self.number = not self.number
+        self.pub.publish()
 
 def ros_main(args = None):
     rospy.init_node('pub_node',argv=args)

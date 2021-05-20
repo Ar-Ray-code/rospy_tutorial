@@ -2,12 +2,12 @@
 import rospy
 from std_msgs.msg import UInt16
 
-class cmd_msg():
+class servo():
 
     def __init__(self):
         self.count = 0
 
-        self.pub = rospy.Publisher('cmd_msg', UInt16, queue_size=1)
+        self.pub = rospy.Publisher('servo', UInt16, queue_size=1)
         hz = float(rospy.get_param("~pub_rate", 2))
         
         duraction = rospy.Duration(secs=0, nsecs=int(1/hz*1000000000))
@@ -15,7 +15,7 @@ class cmd_msg():
         rospy.spin()
     
     def pub_number(self, dummy):
-        angle = 0
+        angle = UInt16()
         self.count = self.count + 1
 
         if(self.count == 0):
@@ -37,12 +37,15 @@ class cmd_msg():
         elif(self.count == 8):
             angle = 0
             self.count = 0
+        else:
+            angle = 0
+            self.count = 0
 
         self.pub.publish(angle)
 
 def ros_main(args = None):
     rospy.init_node('pub_node',argv=args)
-    cmd_msg()
+    servo()
 
 if __name__=="__main__":
     ros_main()
