@@ -1,7 +1,7 @@
 #!/bin/python3
 import rospy
 from std_msgs.msg import Int32
-from original_msg_example.msg import example_msg
+from original_msg_srv.msg import ExampleMsg
 
 class msg_output:
 
@@ -9,8 +9,8 @@ class msg_output:
         self.a = 0
         self.b = 0
 
-        self.msg_data = example_msg()
-        self.pub = rospy.Publisher('pub_example_msg', example_msg, queue_size=1)
+        self.msg_data = ExampleMsg()
+        self.pub = rospy.Publisher('pub_ExampleMsg', ExampleMsg, queue_size=1)
 
         rospy.Subscriber('a',Int32,self.sub_a)
         rospy.Subscriber('b',Int32,self.sub_b)

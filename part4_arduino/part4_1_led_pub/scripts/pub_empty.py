@@ -1,13 +1,13 @@
 #!/bin/python3
 import rospy
-from std_msgs.msg import Int32
+from std_msgs.msg import Empty
 
-class pub_int():
+class toggle_led():
 
     def __init__(self):
-        self.number = 0
+        self.number = False
 
-        self.pub = rospy.Publisher('pub_int', Int32, queue_size=1)
+        self.pub = rospy.Publisher('toggle_led', Empty, queue_size=1)
         hz = float(rospy.get_param("~pub_rate", 2))
         
         duraction = rospy.Duration(secs=0, nsecs=int(1/hz*1000000000))
@@ -16,11 +16,11 @@ class pub_int():
     
     def pub_number(self, dummy):
         self.pub.publish(self.number)
-        self.number = self.number + 1
+        self.number = not self.number
 
 def ros_main(args = None):
     rospy.init_node('pub_node',argv=args)
-    pub_int()
+    toggle_led()
 
 if __name__=="__main__":
     ros_main()

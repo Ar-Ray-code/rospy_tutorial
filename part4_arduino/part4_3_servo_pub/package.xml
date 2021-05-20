@@ -1,20 +1,16 @@
 <?xml version="1.0"?>
 <package format="2">
-  <name>part3_4_using_service</name>
+  <name>part4_3_servo_pub</name>
   <version>0.0.0</version>
-  <description>The using_service package</description>
+  <description>The part4_3_servo_pub package</description>
+
   <maintainer email="ray255ar@gmail.com">Ar-Ray-code</maintainer>
 
   <license>Apache License, Version 2.0</license>
 
   <buildtool_depend>catkin</buildtool_depend>
-  
   <build_depend>rospy</build_depend>
   <build_export_depend>rospy</build_export_depend>
   <exec_depend>rospy</exec_depend>
-
-  <build_depend>std_msgs</build_depend>
-  <build_export_depend>std_msgs</build_export_depend>
-  <exec_depend>std_msgs</exec_depend>
 
 </package>

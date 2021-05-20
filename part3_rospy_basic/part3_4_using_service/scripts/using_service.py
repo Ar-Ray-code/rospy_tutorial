@@ -1,8 +1,8 @@
 #!/bin/python3
 import rospy
 from std_msgs.msg import Int32
-from original_msg_example.msg import example_msg
-from original_msg_example.srv import calc_msg_srv
+from original_msg_srv.msg import ExampleMsg
+from original_msg_srv.srv import CalcMsgSrv
 
 class using_srv:
 
@@ -10,8 +10,8 @@ class using_srv:
         self.a = 0
         self.b = 0
 
-        self.msg_data = example_msg()
-        self.pub = rospy.Publisher('pub_example_msg', example_msg, queue_size=1)
+        self.msg_data = ExampleMsg()
+        self.pub = rospy.Publisher('pub_ExampleMsg', ExampleMsg, queue_size=1)
 
         rospy.Subscriber('a',Int32,self.sub_a)
         rospy.Subscriber('b',Int32,self.sub_b)
@@ -19,7 +19,7 @@ class using_srv:
         rospy.spin()
     
     def calc_by_service(self):
-        calc_module = rospy.ServiceProxy('calc_ab', calc_msg_srv)
+        calc_module = rospy.ServiceProxy('calc_ab', CalcMsgSrv)
         sub_data = calc_module(self.a,self.b)
         rospy.loginfo(sub_data)
     
