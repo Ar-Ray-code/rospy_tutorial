@@ -5,7 +5,7 @@ Please check http://wiki.ros.org/noetic/Installation/Ubuntu .
 ```bash
 $ cd
 $ git clone https://github.com/Ar-Ray-code/rospy_tutorial.git
-$ bash ~/rospy_tutorial/part2_ros_installtion/ros_install.bash
+$ bash ~/rospy_tutorial/part2_ros_installation/ros_install.bash
 $ mv ~/rospy_tutorial ~/ros1_ws/src/rospy_tutorial
 ```
 
