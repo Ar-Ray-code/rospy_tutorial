@@ -3,12 +3,11 @@ import os
 from os.path import expanduser
 from urllib.request import urlretrieve
 
-import cv2
-
 import rospy
-from sensor_msgs.msg import Image
+import cv2
 from cv_bridge import CvBridge
 from original_msg_srv.msg import PositionXY
+from sensor_msgs.msg import Image
 
 home = expanduser("~")
 

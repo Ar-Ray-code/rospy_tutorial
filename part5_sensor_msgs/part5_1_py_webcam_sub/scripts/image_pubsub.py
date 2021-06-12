@@ -1,8 +1,8 @@
 #!/bin/python3
 import rospy
 from sensor_msgs.msg import Image
-from cv_bridge import CvBridge
 import cv2
+from cv_bridge import CvBridge
 
 class image_pub_sub:
     def __init__(self):

@@ -2,8 +2,9 @@
 import rospy
 from sensor_msgs.msg import Image
 from original_msg_srv.msg import PositionXY
-from cv_bridge import CvBridge
+
 import cv2
+from cv_bridge import CvBridge
 import numpy as np
 
 imshow_isview = 1
