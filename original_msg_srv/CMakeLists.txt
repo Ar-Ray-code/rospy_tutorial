@@ -12,6 +12,7 @@ find_package(catkin REQUIRED
 add_message_files(
   FILES
     ExampleMsg.msg
+    PositionXY.msg
 )
 
 ## using service

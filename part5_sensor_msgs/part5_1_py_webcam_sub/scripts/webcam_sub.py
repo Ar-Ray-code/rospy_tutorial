@@ -4,13 +4,11 @@ from sensor_msgs.msg import Image
 from cv_bridge import CvBridge
 import cv2
 
-class hello_world:
+class webcam_sub:
     def __init__(self):
         self.bridge = CvBridge()
-        cv2.namedWindow("window",cv2.WINDOW_AUTOSIZE)
-        rospy.init_node('put_text_sub')
-        rospy.Subscriber("camera/color/image_raw",Image,self.process_image)
-        rospy.spin()
+        cv2.namedWindow("window",cv2.WINDOW_AUTOSIZE)     
+        rospy.Subscriber("usb_cam/image_raw",Image,self.process_image)
     
     def __del__(self):
         cv2.destroyAllWindows()
@@ -24,9 +22,10 @@ class hello_world:
         except Exception as err:
             print(err)
 
-if __name__=="__main__":
-    try:
-        hello_world()
-    except rospy.ROSInterruptException as err:
-        print(err)
+def ros_main():
+    rospy.init_node('put_text_sub')
+    webcam_sub()
+    rospy.spin()
 
+if __name__ == "__main__":
+    ros_main()

@@ -4,14 +4,11 @@ from sensor_msgs.msg import Image
 from cv_bridge import CvBridge
 import cv2
 
-class hello_world:
+class image_pub_sub:
     def __init__(self):
-        self.pub = rospy.Publisher("output_image",Image,queue_size=1)
         self.bridge = CvBridge()
-
-        rospy.init_node('put_text_pubsub')
-        rospy.Subscriber("camera/color/image_raw",Image,self.process_image)
-        rospy.spin()
+        self.pub = rospy.Publisher("output_image",Image,queue_size=1)
+        rospy.Subscriber("usb_cam/image_raw",Image,self.process_image)
 
     def process_image(self,msg):
         try:
@@ -23,9 +20,10 @@ class hello_world:
         except Exception as err:
             print(err)
 
-if __name__=="__main__":
-    try:
-        hello_world()
-    except rospy.ROSInterruptException as err:
-        print(err)
+def ros_main():
+    rospy.init_node('img_pubsub')
+    image_pub_sub()
+    rospy.spin()
 
+if __name__ == "__main__":
+    ros_main()
